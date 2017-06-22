@@ -1,0 +1,20 @@
+{
+  "name": "sentry-uploader",
+  "version": "1.0.0",
+  "description": "Uploads sourcemap files to sentry",
+  "main": "index.js",
+  "bin": {
+    "sentryupload": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/GenusAS/sentry-uploader.git"
+  },
+  "author": "JEI",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "find": "^0.2.7",
+    "request": "^2.81.0"
+  }
+}

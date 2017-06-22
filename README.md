@@ -1,0 +1,1 @@
+This package is used to manage releases and upload sourcemap files to sentry.
