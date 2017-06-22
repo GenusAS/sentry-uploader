@@ -119,7 +119,7 @@ function createRelease(callback){
 
 function findFilesToUpload(callback) {
     let filesForUpload = []
-    find.eachfile(/(\.map$|\.js$)/, './bundle', function(file){
+    find.eachfile(/(\.map$|\.js$)/, 'bundle/', function(file){
         console.log(file)
         filesForUpload.push(file)
         console.log(filesForUpload)
