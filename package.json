@@ -3,6 +3,9 @@
   "version": "1.0.2",
   "description": "Uploads sourcemap files to sentry",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "bin": {
     "sentryupload": "./index.js"
   },
@@ -15,7 +18,8 @@
   "dependencies": {
     "commander": "^2.9.0",
     "find": "^0.2.7",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "version-util": "git+https://github.com/GenusAS/version-util.git"
   },
   "devDependencies": {
     "chai": "^4.0.2",

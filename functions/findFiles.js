@@ -1,15 +1,19 @@
 const find = require('find')
 
 
-function findFilesToUpload(rootDir, callback) {
+const findFilesToUpload = () => new Promise((resolve, reject) => {
     let filesForUpload = []
     
     find.eachfile(/(\.map$|\.js$)/, 'bundle/', function(file){
+
         filesForUpload.push(file)
+
     }).end(function(){
-        console.log("Found files: ", filesForUpload)
-        callback && callback(filesForUpload)
-    })
-}
+
+        resolve(filesForUpload)
+        
+    }).error(reject)
+
+})
 
 module.exports = findFilesToUpload

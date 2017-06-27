@@ -1,7 +1,6 @@
 const fs      = require('fs')
 const request = require('request')
 
-const getVersionNumber  = require('./versionNumber')
 const findFilesToUpload = require('./findFiles')
 
 
@@ -49,32 +48,33 @@ exports.createRelease = (versionNumber) => new Promise((resolve, reject) => {
 exports.uploadSourceMaps = function(versionNumber) {
     console.log("Uploading source maps")
     
-    let files = findFilesToUpload(__dirname, function(files) {
+    let files = findFilesToUpload()
+        .then(function(files) {
 
-        let url = sentryUrl + versionNumber+'/files/'
-     
-        files.forEach(file => {
-            let fileName = "~/"+file.replace(/\\/g, "/")
-            request(
-                {
-                    url: url,
-                    method: 'POST',
-                    headers: {
-                        'Authorization': auth
-                    },
-                    formData: {
-                        name: fileName,
-                        file: fs.createReadStream(file)
+            let url = sentryUrl + versionNumber+'/files/'
+        
+            files.forEach(file => {
+                let fileName = "~/"+file.replace(/\\/g, "/")
+                request(
+                    {
+                        url: url,
+                        method: 'POST',
+                        headers: {
+                            'Authorization': auth
+                        },
+                        formData: {
+                            name: fileName,
+                            file: fs.createReadStream(file)
+                        }
+                    },  function(error, response, body) {
+                        console.log('error:', error) // Print the error if one occurred
+                        console.log('statusCode:', response && response.statusCode) // Print the response status code if a response was received
+                        console.log('body:', body) // Print the HTML for the Google homepage.
+
                     }
-                },  function(error, response, body) {
-                    console.log('error:', error) // Print the error if one occurred
-                    console.log('statusCode:', response && response.statusCode) // Print the response status code if a response was received
-                    console.log('body:', body) // Print the HTML for the Google homepage.
-
-                }
-            )
+                )
+            })
         })
-    })
 }
 
 
