@@ -54,7 +54,7 @@ exports.uploadSourceMaps = function(versionNumber) {
             let url = sentryUrl + versionNumber+'/files/'
         
             files.forEach(file => {
-                let fileName = "~/"+file.replace(/\\/g, "/").replace('bundle','')
+                let fileName = '~'+file.replace(/\\/g, '/').replace('bundle','')
                 request(
                     {
                         url: url,
