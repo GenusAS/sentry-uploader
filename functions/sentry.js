@@ -48,13 +48,13 @@ exports.createRelease = (versionNumber) => new Promise((resolve, reject) => {
 exports.uploadSourceMaps = function(versionNumber) {
     console.log("Uploading source maps")
     
-    let files = findFilesToUpload()
+    findFilesToUpload()
         .then(function(files) {
 
-            let url = sentryUrl + versionNumber+'/files/'
+            const url = sentryUrl + versionNumber+'/files/'
         
             files.forEach(file => {
-                let fileName = '~'+file.replace(/\\/g, '/').replace('bundle','')
+                const fileName = '~'+file.replace(/\\/g, '/').replace('bundle','').replace('/viewer', '').replace('/designer','') // e.g. filename: ~/main.7d9621fcd980665aa367.map
                 request(
                     {
                         url: url,
