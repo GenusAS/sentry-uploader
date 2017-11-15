@@ -1,29 +1,29 @@
 {
-  "name": "sentry-uploader",
-  "version": "1.0.2",
-  "description": "Uploads sourcemap files to sentry",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
-  "bin": {
-    "sentryupload": "./index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com/GenusAS/sentry-uploader.git"
-  },
-  "author": "JEI",
-  "license": "ISC",
-  "dependencies": {
-    "commander": "^2.9.0",
-    "find": "^0.2.7",
-    "request": "^2.81.0",
-    "version-util": "git+https://github.com/GenusAS/version-util.git"
-  },
-  "devDependencies": {
-    "chai": "^4.0.2",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.4.2"
-  }
+	"name": "sentry-uploader",
+	"version": "1.0.3",
+	"description": "Uploads sourcemap files to sentry",
+	"main": "index.js",
+	"scripts": {
+		"test": "mocha"
+	},
+	"bin": {
+		"sentryupload": "./index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com/GenusAS/sentry-uploader.git"
+	},
+	"author": "JEI",
+	"license": "ISC",
+	"dependencies": {
+		"commander": "^2.9.0",
+		"find": "^0.2.7",
+		"request": "^2.81.0",
+		"version-util": "git+https://github.com/GenusAS/version-util.git"
+	},
+	"devDependencies": {
+		"chai": "^4.0.2",
+		"istanbul": "^0.4.5",
+		"mocha": "^3.4.2"
+	}
 }
